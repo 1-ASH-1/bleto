@@ -3076,66 +3076,101 @@ html, body {
     background: radial-gradient(circle at center, rgba(31, 10, 43, 0.8) 0%, rgb(0 0 0 / 90%) 70%);
    
   }
-  .rules-wrapper {
-    width: 100%;
-    max-width: 1300px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(14px);
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    padding: 40px;
-  }
-
-  .rules-title {
+  h2 {
     text-align: center;
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: #ffffff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 10px;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #00f0ff;
   }
 
-  .rules-container {
+  .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
   }
 
-  .rule-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    min-height: 200px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
+  .law-box {
+    background: linear-gradient(145deg, #0f1a1f, #12252d);
+    border: 1px solid #00f0ff33;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px #00f0ff22;
   }
 
-  .rule-card:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-4px);
+  .law-box:hover {
+    background: #122a35;
+    box-shadow: 0 0 25px #00f0ff55;
   }
 
-  .rule-number {
-    font-size: 22px;
-    color: #ffd700;
-    margin-bottom: 10px;
+  .law-title {
+    font-size: 18px;
+    color: #00f0ff;
     font-weight: bold;
   }
 
-  .rule-text {
-    text-align: center;
-    font-size: 14px;
-    color: #ffffff;
-    line-height: 1.6;
+  /* === Modal === */
+  .modal {
+    position: fixed;
+    top: 0; right: 0; left: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
   }
 
-  @media (max-width: 600px) {
-    .rule-card {
-      min-height: 160px;
-    }
+  .modal-content {
+    background: rgba(0, 20, 30, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 14px;
+    max-width: 600px;
+    width: 90%;
+    color: #e0f7fa;
+    position: relative;
+    box-shadow: 0 0 25px #00f0ff55;
+  }
+
+  .modal h3 {
+    margin-top: 0;
+    color: #00f0ff;
+    font-size: 24px;
+  }
+
+  .modal ol {
+    margin: 20px 0;
+    padding-right: 20px;
+  }
+
+  .modal li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+
+  .note {
+    margin-top: 15px;
+    background: #1d2c33;
+    padding: 15px;
+    border-right: 4px solid #f39c12;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #fceabb;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    background: none;
+    border: none;
+    color: #00f0ff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .close-btn:hover {
+    color: #fff;
   }
