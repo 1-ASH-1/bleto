@@ -3326,26 +3326,30 @@ html, body {
 
 
   /* نافذة المعاينة */
-.image-preview-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-  display: none; /* مخفية بالبداية */
+  .image-preview-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;  /* عموديًا */
+    justify-content: center; /* أفقيًا */
+    z-index: 999;
+    padding: 30px; /* يمنع التصاق الصورة بالحواف */
+    box-sizing: border-box;
+    display: none;
 }
 
 .image-preview-overlay img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+    object-fit: contain;
+    transition: 0.3s ease;
 }
 
 /* زر الإغلاق */
