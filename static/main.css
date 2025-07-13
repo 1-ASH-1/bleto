@@ -3268,7 +3268,14 @@ html, body {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
   }
-  
+  .car-grid2{
+
+    display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  }
   .car-card {
     background: linear-gradient(135deg, #0e1a23, #132933);
     border: 1px solid #00f0ff33;
@@ -3276,6 +3283,7 @@ html, body {
     overflow: hidden;
     box-shadow: 0 0 20px #00f0ff22;
     transition: 0.3s ease;
+    
   }
   
   .car-card:hover {
@@ -3314,3 +3322,44 @@ html, body {
   .icons-container2{
     flex-direction: column;
   }
+
+
+
+  /* نافذة المعاينة */
+.image-preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  display: none; /* مخفية بالبداية */
+}
+
+.image-preview-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+/* زر الإغلاق */
+.image-preview-overlay .close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.image-preview-overlay .close-btn:hover {
+  color: #00f0ff;
+}
