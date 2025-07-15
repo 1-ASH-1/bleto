@@ -3107,7 +3107,7 @@ html, body {
 
   .law-title {
     font-size: 18px;
-    color: #00f0ff;
+    color: #ffffff;
     font-weight: bold;
   }
 
@@ -3130,8 +3130,13 @@ html, body {
     max-width: 600px;
     width: 90%;
     color: #e0f7fa;
+    
     position: relative;
     box-shadow: 0 0 25px #00f0ff55;
+    max-height: 80vh; /* ضروري لتحديد ارتفاع المودال */
+    overflow: hidden; /* يمنع تسرب السكرول لخارج الجسم */
+    display: flex;
+    flex-direction: column;
   }
 
   .modal h3 {
@@ -3250,7 +3255,7 @@ html, body {
   
   .radio-code {
     font-size: 18px;
-    color: #00f0ff;
+    color: #fff900;
     font-weight: bold;
   }
 
@@ -3258,7 +3263,7 @@ html, body {
 
   h2 {
     text-align: center;
-    color: #00f0ff;
+    color: #ffffff;
     margin-bottom: 40px;
     font-size: 32px;
   }
@@ -3275,6 +3280,7 @@ html, body {
   gap: 25px;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   }
   .car-card {
     background: linear-gradient(135deg, #0e1a23, #132933);
@@ -3367,3 +3373,180 @@ html, body {
 .image-preview-overlay .close-btn:hover {
   color: #00f0ff;
 }
+
+.modal-content {
+  max-height: 80vh; /* ضروري لتحديد ارتفاع المودال */
+  overflow: hidden; /* يمنع تسرب السكرول لخارج الجسم */
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body {
+  overflow-y: auto;
+  flex: 1; /* يملأ المساحة الباقية داخل المودال */
+  padding-right: 5px; /* حتى ما يلتصق المحتوى */
+}
+
+
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: rgba(0, 20, 30, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 20px 10px;
+  border-radius: 14px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 85vh; /* نحد أقصى لارتفاع النافذة */
+  overflow: hidden;
+  box-shadow: 0 0 25px #00f0ff55;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body {
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 10px;
+  margin-top: 15px;
+}
+
+/* بنود القانون */
+.modal-body ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  counter-reset: list;
+}
+
+.modal-body ol li {
+  position: relative;
+  background: rgba(0, 60, 80, 0.3);
+  backdrop-filter: blur(8px);
+  padding: 15px 20px 15px 60px;
+  margin: 15px 0;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Cairo', sans-serif;
+  font-size: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-body ol li::before {
+  counter-increment: list;
+  content: counter(list) ".";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ffd5;
+}
+
+/* الملاحظات */
+.note {
+  margin-top: 15px;
+  background: #1d2c33;
+  padding: 15px;
+  border-right: 4px solid #f39c12;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #fceabb;
+}
+
+/* زر الإغلاق */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  background: none;
+  border: none;
+  color: #00f0ff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+
+/* Scrollbar داخلي احترافي للمودال */
+.modal-body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: transparent; /* خلفية المسار */
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.3); /* فيروزي شفاف */
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.6); /* عند التمرير يصير أوضح */
+}
+
+/* Firefox */
+.modal-body {
+  scrollbar-color: rgba(0,255,255,0.4) transparent;
+  scrollbar-width: thin;
+}
+
+
+
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+
+  .div1 {
+    /* أي تعديلات للموبايل */
+    padding-right: 0px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 10px;
+    align-content: flex-start;
+    flex-direction: row;
+  }
+
+  .nav-links a {
+    padding: 0; /* إزالة البادينغ */
+    font-size: small;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .header {
+    display: unset;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    backdrop-filter: blur(150px);
+    -webkit-backdrop-filter: blur(15px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
