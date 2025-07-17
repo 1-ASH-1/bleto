@@ -3578,8 +3578,14 @@ html, body {
 /* إزالة خاصية display: flex من .home-page على شاشات اللابتوب والموبايل */
 @media (max-width:1500px) {
     .home-page {
-        display: unset !important; /* إزالة خاصية flex */
-    }
+      height: unset !important; 
+      margin-top: unset !important;   }
+      .media-welcome, .streamers-section, #h, .home-page {
+      margin-top: unset !important; /* إعادة تعيين الهامش العلوي */
+      }
+      .custom-footer {
+        align-items: flex-end; /* محاذاة العناصر إلى الأسفل */
+      }
 }
 
 
