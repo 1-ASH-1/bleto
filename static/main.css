@@ -3592,105 +3592,198 @@ html, body {
 
 /* تصميم قسم متميز الأسبوع */
 #sp {
-  background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
-  padding: 50px 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  color: #fff;
-  text-align: center;
   position: relative;
+  padding: 40px 20px;
+  min-height: 80vh;
+  background: radial-gradient(circle at top right, rgba(50, 50, 80, 0.8), rgba(30, 30, 45, 0.9)), 
+              url('https://ik.imagekit.io/alosh9/bg-pattern.png?updatedAt=1753010000000');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.elite-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding: 40px;
+  background: rgba(25, 25, 35, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 
-/* عنوان متميز الأسبوع */
-.elite-title {
-  font-size: 3rem;
-  font-weight: bold;
+.elite-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #ffcc00, #ff8800, #ffcc00);
+  animation: gradientFlow 3s linear infinite;
+  background-size: 200% auto;
+}
+
+@keyframes gradientFlow {
+  0% {background-position: 0% center;}
+  100% {background-position: 200% center;}
+}
+
+.elite-medal {
+  position: absolute;
+  top: -30px;
+  right: 40px;
+  font-size: 120px;
   color: #ffcc00;
-  margin-bottom: 20px;
-  text-shadow: 0 0 20px rgba(255, 204, 0, 0.8), 0 0 40px rgba(255, 204, 0, 0.6);
-  animation: glowText 2s infinite alternate;
+  opacity: 0.2;
+  transform: rotate(15deg);
+  z-index: 0;
 }
 
-@keyframes glowText {
-  from {
-      text-shadow: 0 0 20px rgba(255, 204, 0, 0.8), 0 0 40px rgba(255, 204, 0, 0.6);
-  }
-  to {
-      text-shadow: 0 0 30px rgba(255, 204, 0, 1), 0 0 60px rgba(255, 204, 0, 0.8);
-  }
+.elite-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 50px;
+  z-index: 1;
 }
 
-/* اسم المتميز */
+.elite-title-box {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.elite-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.elite-title::after {
+  content: '';
+  position: absolute;
+  height: 15px;
+  width: 100%;
+  bottom: 5px;
+  left: 0;
+  background: #ffcc00;
+  z-index: -1;
+  opacity: 0.7;
+  transform: skew(-15deg);
+}
+
 .elite-name {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 30px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
-  animation: shine 3s infinite alternate;
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards 0.5s;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to right, #ffffff, #ffcc00, #ffffff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2.5s linear infinite;
 }
 
-@keyframes shine {
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes fadeInUp {
   from {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-      text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* حاوية الصور */
-.certificates-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  z-index: 1;
+.elite-content {
   position: relative;
+  z-index: 1;
+}
+
+.certificates-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
 }
 
 .certificates-container img {
-  width: 200px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: fadeInImage 0.6s forwards;
+  animation-delay: calc(0.1s * var(--index, 0));
 }
 
 .certificates-container img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  z-index: 2;
 }
 
-/* لوحة التحكم الخاصة بالإدمن */
+@keyframes fadeInImage {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .elite-admin-actions {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: center;
   z-index: 1;
   position: relative;
 }
 
 .admin-button {
-  padding: 12px 30px;
-  background: linear-gradient(135deg, #ffcc00, #ff9900);
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ffcc00 0%, #ff8800 100%);
   color: #fff;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .admin-button:hover {
-  background: linear-gradient(135deg, #ff9900, #ffcc00);
-  box-shadow: 0 10px 20px rgba(255, 153, 0, 0.5);
+  box-shadow: 0 6px 20px rgba(255, 153, 0, 0.5);
   transform: translateY(-2px);
 }
 
-/* لوحة إضافة الصور */
+.admin-button i {
+  font-size: 1.2rem;
+}
+
+/* لوحة إضافة المتميز */
 .admin-panel-overlay {
   display: none;
   position: fixed;
@@ -3698,34 +3791,175 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 10, 20, 0.8);
+  backdrop-filter: blur(8px);
   z-index: 1000;
   justify-content: center;
   align-items: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .admin-panel-container {
-  background: linear-gradient(135deg, #2a2a3d, #1e1e2f);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  width: 400px;
+  width: 500px;
+  max-width: 90%;
+  background: linear-gradient(145deg, #1e1e2e, #2a2a3d);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+  transform: translateY(20px);
+  animation: slideUp 0.3s forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.admin-panel-header {
+  padding: 20px 25px;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .panel-title {
+  margin: 0;
   font-size: 1.5rem;
   color: #ffcc00;
-  margin-bottom: 20px;
-  text-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+  font-weight: 600;
 }
 
-.close-button {
-  background: #ff4444;
+.close-panel-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.close-panel-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.admin-panel-content {
+  padding: 25px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.admin-input:focus {
+  outline: none;
+  border-color: #ffcc00;
+  box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.3);
+}
+
+.file-upload-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.file-upload-label:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.file-upload-label i {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.file-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 10px;
 }
 
-.close-button:hover {
-  background: #ff6666;
+.file-preview-item {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.file-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-panel-footer {
+  padding-top: 15px;
+  text-align: center;
+}
+
+.add-button {
+  width: 100%;
+  padding: 14px;
 }
