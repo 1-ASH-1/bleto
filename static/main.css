@@ -189,7 +189,7 @@ body {
 
 /* الصفحة الرئيسية */
 .home-page {
-    display: flex;
+    
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -3590,161 +3590,188 @@ html, body {
 }
     }
 
-/* تصميم قسم المتميزين */
+/* قسم متميزو حرس الحدود */
 #sp {
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #111133 0%, #22293c 100%);
+  padding: 30px 0;
   min-height: 100vh;
+
+  font-family: 'Cairo', sans-serif;
 }
 
-.elite-container {
+.border-guards-elite {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
+}
+
+/* تصميم العنوان الرئيسي */
+.elite-header {
+  text-align: center;
+  margin-bottom: 50px;
   position: relative;
 }
 
-.elite-header {
-  text-align: center;
-  margin-bottom: 40px;
+.elite-title-container {
+  display: inline-block;
   position: relative;
+  padding: 0 20px 20px;
 }
 
 .elite-main-title {
-  font-size: 2.8rem;
+  font-size: 3rem;
+  font-weight: 800;
   color: #fff;
-  margin-bottom: 10px;
-  text-shadow: 0 0 15px rgba(81, 142, 248, 0.5);
+  margin: 0 0 15px;
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
   position: relative;
   display: inline-block;
 }
 
-.elite-main-title::after {
+.elite-main-title:after {
   content: '';
   position: absolute;
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(90deg, #518ef8, #0ff);
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 3px;
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffcc00, transparent);
 }
 
-.elite-description {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.1rem;
-  max-width: 700px;
+.elite-subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 600px;
   margin: 0 auto;
-  margin-top: 20px;
 }
 
-/* متميزو الأسبوع - البطاقات */
-.elite-cards-container {
-  display: flex;
-  justify-content: center;
+/* تصميم بطاقات المتميزين */
+.elite-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 30px;
-  margin-bottom: 50px;
-  flex-wrap: wrap;
+  margin-bottom: 60px;
 }
 
 .elite-card {
-  width: 340px;
-  background: rgba(30, 40, 70, 0.6);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
   overflow: hidden;
   backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
 }
 
 .elite-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
-.operations-card {
-  background: linear-gradient(135deg, rgba(30, 40, 70, 0.7) 0%, rgba(69, 39, 160, 0.4) 100%);
+.elite-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
 }
 
-.attendance-card {
-  background: linear-gradient(135deg, rgba(30, 40, 70, 0.7) 0%, rgba(20, 136, 204, 0.4) 100%);
+.operations-card:before {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+}
+
+.attendance-card:before {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
 }
 
 .elite-card-header {
-  position: relative;
-  padding: 20px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 25px;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .elite-card-badge {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #518ef8, #0ff);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 5px 20px rgba(81, 142, 248, 0.5);
+  margin-left: 15px;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.elite-card-badge i {
-  font-size: 1.5rem;
+.operations-card .elite-card-badge {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: #fff;
+}
+
+.attendance-card .elite-card-badge {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
   color: #fff;
 }
 
 .elite-card-title {
-  margin-top: 20px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: #fff;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  font-weight: 600;
 }
 
 .elite-card-body {
-  padding: 20px;
+  padding: 25px;
   display: flex;
   align-items: center;
-  flex-direction: column;
-  text-align: center;
 }
 
 .elite-card-avatar {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
-  margin-bottom: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  margin-left: 20px;
+  position: relative;
 }
 
 .elite-card-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.elite-card:hover .elite-card-avatar img {
+  transform: scale(1.08);
+}
+
+.elite-card-info {
+  flex: 1;
 }
 
 .elite-name {
   font-size: 1.5rem;
-  font-weight: 600;
   color: #fff;
   margin: 0 0 5px;
+  font-weight: 600;
 }
 
 .elite-rank {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #ccc;
   margin: 0;
 }
 
 .elite-card-footer {
-  padding: 15px 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .elite-stats {
@@ -3756,33 +3783,36 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #fff;
 }
 
 .elite-stat i {
-  font-size: 1.2rem;
-  color: #518ef8;
   margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.operations-card .elite-stat i {
+  color: #feb47b;
+}
+
+.attendance-card .elite-stat i {
+  color: #4facfe;
 }
 
 .elite-stat span {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 2px;
 }
 
 .elite-stat small {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: #ccc;
 }
 
-/* قسم الشهادات التقديرية */
+/* تصميم قسم الشهادات التقديرية */
 .certificates-section {
-  background: rgba(20, 30, 60, 0.5);
-  border-radius: 20px;
-  padding: 30px;
   margin-top: 50px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .certificates-header {
@@ -3791,49 +3821,55 @@ html, body {
 }
 
 .certificates-title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #fff;
-  margin-bottom: 10px;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
 }
 
-.certificates-subtitle {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1rem;
-  max-width: 800px;
-  margin: 0 auto;
+.certificates-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ffcc00, transparent);
 }
 
 .certificates-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
   margin-top: 30px;
 }
 
 .certificate-item {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   position: relative;
-  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  aspect-ratio: 16/9;
 }
 
 .certificate-item:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 .certificate-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s;
+  transition: transform 0.5s ease;
 }
 
 .certificate-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .certificate-overlay {
@@ -3842,10 +3878,10 @@ html, body {
   left: 0;
   right: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  padding: 15px;
+  padding: 20px;
   color: #fff;
   transform: translateY(100%);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .certificate-item:hover .certificate-overlay {
@@ -3853,40 +3889,49 @@ html, body {
 }
 
 .certificate-title {
+  font-size: 1.1rem;
   margin: 0;
-  font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* زر الإضافة للمسؤولين */
-.elite-admin-actions {
+.no-certificates {
+  grid-column: 1 / -1;
   text-align: center;
-  margin-top: 40px;
+  padding: 50px 0;
+  color: #ccc;
+  font-size: 1.1rem;
 }
 
-.admin-button {
-  background: linear-gradient(135deg, #518ef8, #0ff);
+/* زر إدارة المتميزين */
+.elite-admin-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.elite-admin-button {
+  background: linear-gradient(135deg, #ffcc00, #ff9900);
   color: #fff;
   border: none;
-  padding: 12px 25px;
   border-radius: 50px;
+  padding: 12px 30px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 5px 15px rgba(81, 142, 248, 0.3);
+  gap: 10px;
+  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
-.admin-button:hover {
+.elite-admin-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(81, 142, 248, 0.5);
+  box-shadow: 0 8px 20px rgba(255, 204, 0, 0.4);
 }
 
-.admin-button i {
-  font-size: 1.2rem;
+.elite-admin-button i {
+  font-size: 1.1rem;
 }
 
 /* لوحة إدارة المتميزين */
@@ -3896,107 +3941,101 @@ html, body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
-  z-index: 9999;
+  z-index: 1000;
   display: none;
-  align-items: center;
   justify-content: center;
-  animation: fadeIn 0.3s;
+  align-items: center;
+  padding: 20px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.elite-admin-container {
-  background: linear-gradient(135deg, #1e2642 0%, #161a30 100%);
-  width: 90%;
-  max-width: 800px;
+.elite-admin-content {
+  background: #1a2135;
+  width: 100%;
+  max-width: 900px;
   max-height: 90vh;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  animation: slideUp 0.4s;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
 }
 
 .elite-admin-header {
+  padding: 20px 25px;
+  background: #121827;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 25px;
-  background: rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .elite-admin-header h3 {
   margin: 0;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
-.close-btn {
-  background: none;
+.elite-close-btn {
+  background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.7);
+  color: #ccc;
   font-size: 1.5rem;
   cursor: pointer;
-  transition: color 0.3s;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-.close-btn:hover {
+.elite-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
 
 .elite-admin-tabs {
   display: flex;
+  background: #121827;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(0, 0, 0, 0.1);
 }
 
-.tab-btn {
-  flex: 1;
-  padding: 15px;
-  text-align: center;
-  background: none;
+.elite-admin-tabs .tab-btn {
+  padding: 15px 25px;
+  color: #ccc;
+  background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
   position: relative;
+  transition: all 0.2s ease;
 }
 
-.tab-btn.active {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.tab-btn::after {
+.elite-admin-tabs .tab-btn:after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%;
-  width: 0;
+  left: 0;
+  right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #518ef8, #0ff);
-  transform: translateX(-50%);
-  transition: width 0.3s;
+  background: #ffcc00;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
-.tab-btn.active::after {
-  width: 100%;
+.elite-admin-tabs .tab-btn.active {
+  color: #fff;
 }
 
-.elite-admin-content {
+.elite-admin-tabs .tab-btn.active:after {
+  transform: scaleX(1);
+}
+
+.elite-admin-tabs-content {
   flex: 1;
   overflow-y: auto;
   padding: 25px;
@@ -4008,59 +4047,83 @@ html, body {
 
 .tab-content.active {
   display: block;
-  animation: fadeIn 0.3s;
 }
 
-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+/* نموذج الإدارة */
+.elite-form {
+  margin-bottom: 30px;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #fff;
   font-size: 0.95rem;
 }
 
-.form-group input[type="text"],
-.form-group input[type="number"] {
+.elite-form input[type="text"],
+.elite-form input[type="number"] {
   width: 100%;
   padding: 12px 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   color: #fff;
   font-size: 1rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.form-group input:focus {
+.elite-form input:focus {
   outline: none;
-  border-color: #518ef8;
-  box-shadow: 0 0 0 2px rgba(81, 142, 248, 0.3);
+  border-color: #ffcc00;
 }
 
-.form-group input[type="file"] {
+.file-input-container {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.elite-form input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.9);
+  height: 100%;
+  opacity: 0;
   cursor: pointer;
+  z-index: 2;
+}
+
+.file-input-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.file-input-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .image-preview {
-  margin-top: 10px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  min-height: 100px;
-  padding: 10px;
+  margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -4070,117 +4133,216 @@ form {
   width: 80px;
   height: 80px;
   object-fit: cover;
-  border-radius: 5px;
-}
-
-.submit-btn {
-  background: linear-gradient(135deg, #518ef8, #0ff);
-  color: #fff;
-  border: none;
-  padding: 12px 25px;
   border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 5px 15px rgba(81, 142, 248, 0.3);
-  grid-column: 1 / -1;
-  margin-top: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-.submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(81, 142, 248, 0.5);
-}
-
-.certificates-list {
-  grid-column: 1 / -1;
-  margin-top: 20px;
-}
-
-.certificates-list h4 {
-  color: #fff;
-  margin-bottom: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.multi-preview {
+  max-width: 100%;
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
   padding-bottom: 10px;
 }
 
-.current-certificates {
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #ffcc00, #ff9900);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-btn:hover {
+  background: linear-gradient(135deg, #ffdf4d, #ffad33);
+  transform: translateY(-2px);
+}
+
+/* قسم الشهادات الحالية */
+.current-certificates-container {
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+}
+
+.current-certificates-container h4 {
+  color: #fff;
+  margin: 0 0 20px;
+  font-size: 1.2rem;
+}
+
+.current-certificates-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .certificate-preview {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.certificate-preview:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .certificate-preview img {
   width: 100%;
-  aspect-ratio: 3/2;
+  height: 120px;
   object-fit: cover;
+}
+
+.certificate-preview .certificate-title {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .certificate-preview .delete-btn {
   position: absolute;
   top: 5px;
-  right: 5px;
-  background: rgba(255, 0, 0, 0.7);
+  left: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.8);
   color: #fff;
   border: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.2s ease;
 }
 
 .certificate-preview:hover .delete-btn {
   opacity: 1;
 }
 
-.certificate-preview .certificate-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px;
-  background: rgba(0, 0, 0, 0.7);
-  font-size: 0.8rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.no-data {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 30px 0;
+  color: #ccc;
+  font-style: italic;
 }
 
-/* تكييف مع الشاشات الصغيرة */
+/* تأثيرات الإشعارات */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: #fff;
+  z-index: 9999;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-out;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification.fade-out {
+  opacity: 0;
+}
+
+.notification.success {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.notification.error {
+  background: linear-gradient(135deg, #dc3545, #e83e8c);
+}
+
+.notification.info {
+  background: linear-gradient(135deg, #17a2b8, #0077b6);
+}
+
+/* تصميم متجاوب */
 @media (max-width: 768px) {
-  .elite-cards-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .elite-card {
-    width: 100%;
-    max-width: 340px;
-  }
-  
-  .certificates-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-  
-  form {
+  .elite-cards-grid {
     grid-template-columns: 1fr;
   }
   
-  .elite-admin-container {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .elite-admin-content {
     width: 95%;
+  }
+  
+  .elite-admin-tabs .tab-btn {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .elite-main-title {
+    font-size: 2.4rem;
+  }
+  
+  .elite-subtitle {
+    font-size: 1rem;
+  }
+  
+  .elite-card-body {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .elite-card-avatar {
+    margin: 0 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificates-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .current-certificates-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .elite-admin-tabs {
+    flex-direction: column;
+  }
+  
+  .elite-admin-tabs .tab-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .elite-admin-tabs .tab-btn:after {
+    bottom: 0;
+    left: 20%;
+    right: 20%;
   }
 }
