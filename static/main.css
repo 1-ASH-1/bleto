@@ -3575,19 +3575,6 @@ html, body {
     overflow: visible !important; /* ضمان عدم منع التمرير */
 }
 
-/* إزالة خاصية display: flex من .home-page على شاشات اللابتوب والموبايل */
-@media (max-width:1500px) {
-    .home-page {
-      height: unset !important; 
-      margin-top: unset !important;   }
-      .media-welcome, .streamers-section, #h, .home-page {
-      margin-top: unset !important; /* إعادة تعيين الهامش العلوي */
-      }
-      .custom-footer {
-        align-items: flex-end; /* محاذاة العناصر إلى الأسفل */
-        
-}
-
 
 @media (max-width: 768px) {
     .reel-item {
@@ -3606,75 +3593,139 @@ html, body {
 /* تصميم قسم متميز الأسبوع */
 #sp {
   background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 50px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   color: #fff;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-#sp .elite-title {
-  font-size: 2rem;
+/* عنوان متميز الأسبوع */
+.elite-title {
+  font-size: 3rem;
   font-weight: bold;
   color: #ffcc00;
   margin-bottom: 20px;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.8), 0 0 40px rgba(255, 204, 0, 0.6);
+  animation: glowText 2s infinite alternate;
 }
 
-#sp .elite-name {
-  font-size: 1.8rem;
+@keyframes glowText {
+  from {
+      text-shadow: 0 0 20px rgba(255, 204, 0, 0.8), 0 0 40px rgba(255, 204, 0, 0.6);
+  }
+  to {
+      text-shadow: 0 0 30px rgba(255, 204, 0, 1), 0 0 60px rgba(255, 204, 0, 0.8);
+  }
+}
+
+/* اسم المتميز */
+.elite-name {
+  font-size: 2rem;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+  animation: shine 3s infinite alternate;
 }
 
-#sp .certificates-container {
+@keyframes shine {
+  from {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+  to {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* حاوية الصور */
+.certificates-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
   justify-content: center;
+  z-index: 1;
+  position: relative;
 }
 
-#sp .certificates-container img {
-  width: 150px;
+.certificates-container img {
+  width: 200px;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#sp .certificates-container img:hover {
+.certificates-container img:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
-#sp .elite-admin-actions {
-  margin-top: 20px;
+/* لوحة التحكم الخاصة بالإدمن */
+.elite-admin-actions {
+  margin-top: 30px;
   text-align: center;
+  z-index: 1;
+  position: relative;
 }
 
-#sp .elite-admin-actions input[type="text"],
-#sp .elite-admin-actions input[type="file"] {
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 300px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background: #2a2a3d;
+.admin-button {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #ffcc00, #ff9900);
   color: #fff;
-}
-
-#sp .elite-admin-actions button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
+  font-size: 1rem;
+  font-weight: bold;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
 }
 
-#sp .elite-admin-actions button:hover {
-  background-color: #45a049;
+.admin-button:hover {
+  background: linear-gradient(135deg, #ff9900, #ffcc00);
+  box-shadow: 0 10px 20px rgba(255, 153, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* لوحة إضافة الصور */
+.admin-panel-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-panel-container {
+  background: linear-gradient(135deg, #2a2a3d, #1e1e2f);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 400px;
+}
+
+.panel-title {
+  font-size: 1.5rem;
+  color: #ffcc00;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+}
+
+.close-button {
+  background: #ff4444;
+  margin-top: 10px;
+}
+
+.close-button:hover {
+  background: #ff6666;
 }
