@@ -3603,3 +3603,78 @@ html, body {
 }
     }
 
+/* تصميم قسم متميز الأسبوع */
+#sp {
+  background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-align: center;
+}
+
+#sp .elite-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#sp .elite-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#sp .certificates-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+#sp .certificates-container img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#sp .certificates-container img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+#sp .elite-admin-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#sp .elite-admin-actions input[type="text"],
+#sp .elite-admin-actions input[type="file"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background: #2a2a3d;
+  color: #fff;
+}
+
+#sp .elite-admin-actions button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#sp .elite-admin-actions button:hover {
+  background-color: #45a049;
+}
