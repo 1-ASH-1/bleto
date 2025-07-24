@@ -3351,8 +3351,8 @@ html, body {
 }
 
 .image-preview-overlay img {
-    max-width: 80vw;
-    max-height: 80vh;
+    max-width: 80vh;
+    max-height: 60vh;
     border-radius: 16px;
     box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
     object-fit: contain;
