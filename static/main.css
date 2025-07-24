@@ -3853,7 +3853,7 @@ html, body {
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
-  aspect-ratio: 16/9;
+ 
 }
 
 .certificate-item:hover {
@@ -3869,7 +3869,7 @@ html, body {
 }
 
 .certificate-item:hover img {
-  transform: scale(1.1);
+  
 }
 
 .certificate-overlay {
