@@ -189,9 +189,9 @@ body {
 
 /* الصفحة الرئيسية */
 .home-page {
-    
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+   
     align-items: center;
     text-align: center;
     margin-top: 80px; /* لضمان ظهور العناصر تحت الهيدر */
@@ -4344,5 +4344,20 @@ html, body {
     bottom: 0;
     left: 20%;
     right: 20%;
+  }
+}
+
+
+/* ✅ للموبايل */
+@media (max-width: 767px) {
+  .home-page {
+    height: unset !important;
+  }
+}
+
+/* ✅ للابتوبات */
+@media (min-width: 768px) and (max-width: 1440px) {
+  .home-page {
+    height: unset !important;
   }
 }
