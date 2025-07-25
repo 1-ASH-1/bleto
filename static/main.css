@@ -3354,7 +3354,7 @@ html, body {
     max-width: 80vh;
     max-height: 60vh;
     border-radius: 16px;
-    box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+    
     object-fit: contain;
     transition: 0.3s ease;
 }
@@ -4362,3 +4362,24 @@ html, body {
   }
 }
 
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(145deg, #555, #222);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(145deg, #777, #333);
+}
